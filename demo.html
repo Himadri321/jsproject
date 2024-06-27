@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: aquamarine;">
+    <center>
+        <div class="container">
+            <h1>Deposit Amount</h1>
+            <label for="depositAmount">Enter Deposit Amount:</label>
+            <input type="number" id="depositAmount" placeholder="Enter amount">
+            <button onclick="updateAmount()">Submit</button>
+            <div id="details" class="details">
+                <h2>Details</h2>
+                <p id="amountDisplay">No amount entered yet.</p>
+            </div>
+        </div>
+
+    </center>
+    <script>
+    function updateAmount()
+    {
+        const depositAmount = document.getElementById('depositAmount').value;
+        const amountDisplay = document.getElementById('amountDisplay');
+
+        if (depositAmount) {
+            amountDisplay.textContent = `The entered deposit amount is ${depositAmount}.`;
+        } else {
+            amountDisplay.textContent = 'No amount entered yet.';
+        }
+    }
+    </script>
+</body>
+</html>

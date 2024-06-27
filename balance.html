@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: antiquewhite;">
+    <center>
+        <div class="container">
+            <h1>Banking System</h1>
+            
+            <div>
+                <label for="withdrawalAmount">Enter Withdrawal Amount:</label>
+                <input type="number" id="withdrawalAmount" placeholder="Enter amount">
+                <button onclick="withdrawAmount()">Withdraw</button>
+            </div>
+    
+            <div id="details" class="details">
+                <h2>Details</h2>
+                <p id="balanceDisplay">Current Balance: 10000</p>
+                <p id="withdrawalDisplay">No withdrawal made yet.</p>
+            </div>
+        </div>
+    </center>
+    <script>
+    let currentBalance = 10000; // Initial balance
+
+    function withdrawAmount() {
+        const withdrawalAmount = parseFloat(document.getElementById('withdrawalAmount').value);
+        const balanceDisplay = document.getElementById('balanceDisplay');
+        const withdrawalDisplay = document.getElementById('withdrawalDisplay');
+
+        if (!isNaN(withdrawalAmount) && withdrawalAmount > 1000) {
+            const newBalance = currentBalance - withdrawalAmount;
+
+            if (newBalance >= 500) {
+                currentBalance = newBalance;
+                withdrawalDisplay.textContent = `Withdrawal of ${withdrawalAmount} successful.`;
+            } else {
+                withdrawalDisplay.textContent = `Insufficient balance. Minimum balance of 500 must be maintained.`;
+            }
+
+            balanceDisplay.textContent = `Current Balance: ${currentBalance}`;
+        } else {
+            withdrawalDisplay.textContent = 'Invalid withdrawal amount.';
+        }
+    }
+    </script>
+</body>
+</html>
